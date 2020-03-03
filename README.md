@@ -1,0 +1,2 @@
+# inventory
+inventory command action
