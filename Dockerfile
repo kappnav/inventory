@@ -86,8 +86,8 @@ LABEL name="Application Navigator" \
       version=$VERSION \
       release=$VERSION \
       created=$BUILD_DATE \
-      summary="APIs image for Application Navigator" \
-      description="This image contains the APIs for Application Navigator"
+      summary="Inventory image for Application Navigator" \
+      description="This image contains the inventory commands action for Application Navigator"
 
 COPY --from=builder --chown=1001:0 /target/liberty/wlp/usr/servers/defaultServer /config/
 

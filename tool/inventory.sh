@@ -40,7 +40,7 @@ echo
 
 # get pods and print images 
 
-echo 'App Navigators Pods and Images:'
+echo 'App Navigator Pods and Images:'
 echo
 
 kubectl get -n $namespace pods | awk '{ print $1 }' | while read p; do 
