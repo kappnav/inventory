@@ -80,12 +80,14 @@ FROM liberty
 
 ARG VERSION
 ARG BUILD_DATE
+ARG COMMIT
 
 LABEL name="Application Navigator" \
       vendor="kAppNav" \
       version=$VERSION \
       release=$VERSION \
       created=$BUILD_DATE \
+      commit=$COMMIT \
       summary="Inventory image for Application Navigator" \
       description="This image contains the inventory commands action for Application Navigator"
 

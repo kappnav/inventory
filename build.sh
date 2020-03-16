@@ -35,4 +35,5 @@ if [ -e apis ]; then
 fi
 git clone https://github.com/kappnav/apis.git
 
-docker build --pull --build-arg VERSION=${VERSION} --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t ${IMAGE} .
+COMMIT=$(git rev-parse HEAD)
+docker build --pull --build-arg VERSION=$VERSION --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg COMMIT=$COMMIT -t ${IMAGE} .
