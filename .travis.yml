@@ -43,4 +43,5 @@ jobs:
       - pwd
       - ls -al
       - ls -al ../build
+      - ../build/version.sh
       - ./build.sh
