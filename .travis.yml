@@ -37,8 +37,10 @@ jobs:
       script:
       - uname -a
       - cat /etc/issue
-      - wget https://github.com/kappnav/build/blob/master/version.sh -O version.sh
-      - chmod +x version.sh
+      - mkdir ../build
+      - wget https://github.com/kappnav/build/blob/master/version.sh -O ../build/version.sh
+      - chmod +x ../build/version.sh
       - pwd
       - ls -al
+      - ls -al ../build
       - ./build.sh
