@@ -38,7 +38,7 @@ jobs:
       - uname -a
       - cat /etc/issue
       - mkdir ../build
-      - wget https://github.com/kappnav/build/blob/master/version.sh -o ../build/version.sh
+      - wget https://raw.githubusercontent.com/kappnav/build/master/version.sh -O ../build/version.sh
       - chmod +x ../build/version.sh
       - pwd
       - ls -al
