@@ -39,10 +39,10 @@ jobs:
       - cat /etc/issue
       - mkdir ../build
       - wget https://raw.githubusercontent.com/kappnav/build/master/version.sh -O ../build/version.sh
-      - wget https://raw.githubusercontent.com/kappnav/build/master/pushKAAppNavToDockerHub.sh -O ../build/pushKAAppNavToDockerHub.sh
-      - chmod +x ../build/version.sh
-      - chmod +x ../build/pushKAAppNavToDockerHub.sh
+      - wget https://raw.githubusercontent.com/kappnav/build/master/pushKAppNavToDockerHub.sh -O ../build/pushKAppNavToDockerHub.sh
       - pwd
       - ls -al
       - ls -al ../build
+      - chmod +x ../build/version.sh
+      - chmod +x ../build/pushKAAppNavToDockerHub.sh
       - ./build.sh
