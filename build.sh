@@ -41,7 +41,7 @@ docker build --pull --build-arg VERSION=$VERSION --build-arg BUILD_DATE=$(date -
 
 echo $TRAVIS_PULL_REQUEST
 echo $TRAVIS_BRANCH
-if [ "$TRAVIS" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH"  == "master" ]; then
+if [ "$TRAVIS" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH"  == "travisUpdates" ]; then
     echo $DOCKER_PWD | docker login docker.io -u $DOCKER_USER --password-stdin
     targetImage=docker.io/kappnav/inv:dev
     echo "Pushing Docker image $targetImage"

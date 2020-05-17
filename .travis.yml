@@ -44,5 +44,5 @@ jobs:
       - ls -al
       - ls -al ../build
       - chmod +x ../build/version.sh
-      - chmod +x ../build/pushKAAppNavToDockerHub.sh
+      - chmod +x ../build/pushKAppNavToDockerHub.sh
       - ./build.sh
