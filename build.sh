@@ -45,6 +45,6 @@ if [ "$TRAVIS" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVI
     echo $DOCKER_PWD | docker login docker.io -u $DOCKER_USER --password-stdin
     targetImage=docker.io/kappnav/inv:dev
     echo "Pushing Docker image $targetImage"
-    docker tag ${image} ${targetImage}
+    docker tag ${IMAGE} ${targetImage}
     docker push ${targetImage}
 fi
