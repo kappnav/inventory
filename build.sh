@@ -17,11 +17,6 @@
 ###############################################################################
 set -Eeo pipefail
 
-# Travis builds won't have a peer build dir
-#VERSION=x.x.x
-#if [ -e ../build/version.sh ]; then
-#    . ../build/version.sh
-#fi
 . ../build/version.sh
 
 IMAGE=kappnav-inv
@@ -39,8 +34,6 @@ git clone https://github.com/kappnav/apis.git
 COMMIT=$(git rev-parse HEAD)
 docker build --pull --build-arg VERSION=$VERSION --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg COMMIT=$COMMIT -t ${IMAGE} .
 
-echo $TRAVIS_PULL_REQUEST
-echo $TRAVIS_BRANCH
 if [ "$TRAVIS" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH"  == "travisUpdates" ]; then
     echo $DOCKER_PWD | docker login docker.io -u $DOCKER_USER --password-stdin
     targetImage=docker.io/kappnav/inv:dev
