@@ -15,6 +15,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ###############################################################################
+apisCommit=$1  # if necessary build with a specific commit of the apis repository
+
 set -Eeo pipefail
 
 . ../build/version.sh
@@ -30,9 +32,13 @@ if [ -e apis ]; then
 	rm -rf apis 
 fi
 git clone https://github.com/kappnav/apis.git
+if [ x$apisCommit != 'x' ]; then
+    cd apis; git checkout $apisCommit; cd ..  # use specified commit of apis
+fi
 
 COMMIT=$(git rev-parse HEAD)
-docker build --pull --build-arg VERSION=$VERSION --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg COMMIT=$COMMIT -t ${IMAGE} .
+cd apis; APIS_COMMIT=$(git rev-parse HEAD); cd ..
+docker build --pull --build-arg VERSION=$VERSION --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg COMMIT=$COMMIT --build-arg APIS_COMMIT=$APIS_COMMIT -t ${IMAGE} .
 
 # If this build is being done on an update to the master branch then tag the image as "dev" and push to docker hub kappnav org
 if [ "$TRAVIS" == "true" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH"  == "master" ]; then
